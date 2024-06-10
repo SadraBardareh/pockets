@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from .models import Clipboard, ClipboardItem
-from uuid import uuid4
 
 class ClipboardSerializer(serializers.ModelSerializer):
     user_id = serializers.IntegerField(read_only=True)

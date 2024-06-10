@@ -22,5 +22,6 @@ urlpatterns = [
     path('__debug__/', include('debug_toolbar.urls')),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
-    path('', include('clipboard.urls'))
+    path('', include('clipboard.urls')),
+    path('', include('lapizua.urls')),
 ]

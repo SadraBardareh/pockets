@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     'djoser',
     'core',
     'clipboard',
+    'lapizua',
 ]
 
 MIDDLEWARE = [
