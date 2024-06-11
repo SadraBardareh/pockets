@@ -213,7 +213,7 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_BEAT_SCHEDULE = {
     'delete_old_lapizua_pockets': {
-        'task': 'delete_old_lapizua_pockets',
+        'task': 'lapizua.tasks.delete_old_lapizua_pockets',
         'schedule': crontab(minute='*/15')
     }
 }
