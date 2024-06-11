@@ -207,6 +207,11 @@ except:
     REDIS_URL = os.getenv('REDIS_URL', 'REDIS_URL is not set.')
 
 CELERY_BROKER_URL = REDIS_URL
+CELERY_RESULT_BACKEND = REDIS_URL
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Tehran'
 CELERY_BEAT_SCHEDULE = {
     'delete_old_lapizua_pockets': {
         'task': 'lapizua.tasks.delete_old_lapizua_pockets',
