@@ -15,6 +15,7 @@ import os
 from pathlib import Path
 from dotenv import dotenv_values
 import pymysql
+from celery.schedules import crontab
 
 config = dotenv_values(".env")
 
@@ -197,5 +198,18 @@ DJOSER = {
     'SERIALIZERS': {
         'user_create': 'core.serializers.UserCreateSerializer',
         'current_user': 'core.serializers.UserSerializer',
+    }
+}
+
+try:
+    REDIS_URL = config['REDIS_URL']
+except:
+    REDIS_URL = os.getenv('REDIS_URL', 'REDIS_URL is not set.')
+
+CELERY_BROKER_URL = REDIS_URL
+CELERY_BEAT_SCHEDULE = {
+    'delete_old_lapizua_pockets': {
+        'task': 'lapizua.tasks.delete_old_lapizua_pockets',
+        'schedule': crontab(minute='*/5')
     }
 }

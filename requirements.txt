@@ -16,4 +16,6 @@ pycparser
 PyJWT
 PyMySQL
 python-dotenv
-
+celery
+redis
+flower
